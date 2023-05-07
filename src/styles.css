@@ -1,0 +1,96 @@
+html, body {
+    height: 100%;
+}
+.weather-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+background-color: #f4f4f4;
+background-image: linear-gradient(
+    to right top,
+    #d4cbe4,
+    #c4c5f5,
+    #b1c8f6,
+    #96cfe5,
+    #77d1c9
+    ),
+    url("https://i.imgur.com/K6bsPIn.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+
+}
+
+.heading {
+margin-bottom: 2rem;
+font-size: 3rem;
+color: #fff;
+text-shadow: 1px 1px #000;
+}
+
+input[type="search"] {
+padding: 1rem;
+border-radius: 0.5rem;
+border: none;
+font-size: 1.5rem;
+margin-right: 1rem;
+}
+
+button[type="submit"] {
+background-color: #2e2e2e;
+color: #fff;
+border: none;
+padding: 1rem 2rem;
+border-radius: 0.5rem;
+font-size: 1.5rem;
+cursor: pointer;
+}
+
+button[type="submit"]:hover {
+background-color: #565656;
+}
+
+.weather-details {
+margin-top: 3rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: #fff;
+text-shadow: 1px 1px #000;
+background-color: rgba(0, 0, 0, 0.5);
+padding: 2rem;
+border-radius: 1rem;
+}
+
+.weather-details h2 {
+font-size: 5rem;
+margin-bottom: 0.5rem;
+}
+
+.weather-details h3 {
+font-size: 2rem;
+margin-top: 0.5rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 1rem;
+    width: 100%;
+}
+
+.footer-text {
+    color: #333;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+}
+  
+  
