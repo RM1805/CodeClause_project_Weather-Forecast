@@ -6,16 +6,29 @@ const Weather = () => {
   const [city, setCity] = useState(null);
   const [search, setSearch] = useState("");
   const [state, setState] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchApi = async () => {
       const apiKey = "d6a2654aa973d4455a529277fee7eb7c";
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${apiKey}&units=metric`;
-      const response = await fetch(url);
-      const resJson = await response.json();
-      setCity(resJson.main);
+
+      setLoading(true);
+
+      try {
+        const response = await fetch(url);
+        const resJson = await response.json();
+        setCity(resJson.main);
+      } catch (error) {
+        console.log("Error fetching weather data:", error);
+      }
+
+      setLoading(false); 
     };
-    fetchApi();
+
+    if (search) {
+      fetchApi();
+    }
   }, [state]);
 
   const handleChange = (event) => {
@@ -42,7 +55,9 @@ const Weather = () => {
           Search
         </button>
       </form>
-      {city && (
+      {loading ? (
+        <div className="loading-message">Loading...</div> // Render loading message when loading is true
+      ) : city ? (
         <div className="weather-card">
           <h2 className="temp">{city.temp}&deg;C</h2>
           <h2 className="temp-range">
@@ -50,12 +65,11 @@ const Weather = () => {
           </h2>
           <h3 className="humidity">Humidity: {city.humidity}%</h3>
         </div>
-      )}
+      ) : null}
 
       <footer className="footer">
         <p>&copy; {new Date().getFullYear()} Created by Rishi Mishra</p>
       </footer>
-
     </div>
   );
 };
